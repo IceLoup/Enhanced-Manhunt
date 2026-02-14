@@ -1,0 +1,26 @@
+name: Manhunt
+version: 1.0-SNAPSHOT
+description: Based Manhunt plugin for PyxisMC.
+author: IceLoup
+main: xyz.pyxismc.manhunt.Manhunt
+api-version: 1.21
+commands:
+  runner:
+    description: Select a player as the runner
+    usage: /runner <player>
+    permission: manhunt.admin
+  manhunt:
+    description: Open the manhunt GUI
+    usage: /config
+    permission: manhunt.admin
+    aliases: [mh, gui]
+permissions:
+  manhunt.admin:
+    description: Allows managing the manhunt game
+    default: op
+  manhunt.hunter:
+    description: Identifies a player as a hunter
+    default: false
+  manhunt.runner:
+    description: Identifies a player as the runner
+    default: false
