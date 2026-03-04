@@ -1,4 +1,4 @@
-package xyz.pyxismc.manhunt;
+package xyz.pyxismc.manhunt.Listeners.Events;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -17,6 +17,8 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
+import xyz.pyxismc.manhunt.GUIs.ManhuntGUI;
+
 import java.time.Duration;
 
 import java.util.*;

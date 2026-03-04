@@ -1,4 +1,4 @@
-package xyz.pyxismc.manhunt;
+package xyz.pyxismc.manhunt.Listeners.Configuration;
 
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
@@ -12,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import xyz.pyxismc.manhunt.GUIs.ManhuntGUI;
 
 public class OverWorldBorderListener implements Listener {
 

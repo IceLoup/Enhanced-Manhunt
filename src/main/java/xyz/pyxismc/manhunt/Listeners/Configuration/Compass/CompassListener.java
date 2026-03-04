@@ -1,6 +1,5 @@
-package xyz.pyxismc.manhunt;
+package xyz.pyxismc.manhunt.Listeners.Configuration.Compass;
 
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -13,6 +12,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
+import xyz.pyxismc.manhunt.Manhunt;
 
 import java.util.*;
 import java.util.stream.Collectors;

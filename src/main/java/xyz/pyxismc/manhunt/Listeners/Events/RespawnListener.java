@@ -1,4 +1,4 @@
-package xyz.pyxismc.manhunt;
+package xyz.pyxismc.manhunt.Listeners.Events;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;

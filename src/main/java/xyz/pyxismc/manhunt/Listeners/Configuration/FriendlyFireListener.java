@@ -1,4 +1,4 @@
-package xyz.pyxismc.manhunt;
+package xyz.pyxismc.manhunt.Listeners.Configuration;
 
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
@@ -9,14 +9,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import xyz.pyxismc.manhunt.GUIs.ManhuntGUI;
 
-public class RunnerFriendlyFireListener implements Listener {
+public class FriendlyFireListener implements Listener {
 
     private final MiniMessage miniMessage = MiniMessage.miniMessage();
     private final ManhuntGUI manhuntGUI;
-    private boolean runnerfriendlyFireEnabled = false; // Default: disabled
+    private boolean friendlyFireEnabled = false; // Default: disabled
 
-    public RunnerFriendlyFireListener(ManhuntGUI manhuntGUI) {
+    public FriendlyFireListener(ManhuntGUI manhuntGUI) {
         this.manhuntGUI = manhuntGUI;
     }
 
@@ -35,13 +36,13 @@ public class RunnerFriendlyFireListener implements Listener {
                 if (clicked.hasItemMeta() && clicked.getItemMeta().hasDisplayName()) {
                     String displayName = PlainTextComponentSerializer.plainText().serialize(clicked.getItemMeta().displayName());
 
-                    if (displayName.equals("Runners Friendly Fire")) {
-                        runnerfriendlyFireEnabled = !runnerfriendlyFireEnabled;
+                    if (displayName.equals("Hunters Friendly Fire")) {
+                        friendlyFireEnabled = !friendlyFireEnabled;
 
-                        if (runnerfriendlyFireEnabled) {
-                            player.sendMessage(miniMessage.deserialize("<#e61717>⚔ <dark_gray>» <#e61717>Friendly fire beetween runners is now <#05ff26>ON"));
+                        if (friendlyFireEnabled) {
+                            player.sendMessage(miniMessage.deserialize("<#e61717>⚔ <dark_gray>» <#e61717>Friendly fire beetween hunters is now <#05ff26>ON"));
                         } else {
-                            player.sendMessage(miniMessage.deserialize("<#e61717>⚔ <dark_gray>» <#e61717>Friendly fire beetween runners is now <#e61717>OFF"));
+                            player.sendMessage(miniMessage.deserialize("<#e61717>⚔ <dark_gray>» <#e61717>Friendly fire beetween huntersk is now <#e61717>OFF"));
                         }
 
                         player.playSound(player.getLocation(), "minecraft:block.note_block.pling", 1.0f, 1.0f);
@@ -55,12 +56,16 @@ public class RunnerFriendlyFireListener implements Listener {
 
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
+        // Only care about Player vs Player
         if (!(event.getEntity() instanceof Player victim) || !(event.getDamager() instanceof Player attacker)) return;
 
-        if (runnerfriendlyFireEnabled) return;
+        // If FF is enabled, we don't need to block anything
+        if (friendlyFireEnabled) return;
 
-        if (victim.hasPermission("manhunt.runner") && attacker.hasPermission("manhunt.runner")) {
+        // Check if both are hunters
+        if (victim.hasPermission("manhunt.hunter") && attacker.hasPermission("manhunt.hunter")) {
 
+            // Validate world
             String worldName = victim.getWorld().getName();
             if (worldName.equals("world") || worldName.equals("world_nether") || worldName.equals("world_the_end")) {
 
@@ -71,10 +76,10 @@ public class RunnerFriendlyFireListener implements Listener {
     }
 
     public boolean isFriendlyFireEnabled() {
-        return runnerfriendlyFireEnabled;
+        return friendlyFireEnabled;
     }
 
     public void setFriendlyFireEnabled(boolean enabled) {
-        this.runnerfriendlyFireEnabled = enabled;
+        this.friendlyFireEnabled = enabled;
     }
 }

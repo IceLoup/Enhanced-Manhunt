@@ -1,4 +1,4 @@
-package xyz.pyxismc.manhunt;
+package xyz.pyxismc.manhunt.Listeners.Events;
 
 import org.bukkit.Bukkit;
 import org.bukkit.World;

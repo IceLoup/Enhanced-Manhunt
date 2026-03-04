@@ -1,4 +1,4 @@
-package xyz.pyxismc.manhunt;
+package xyz.pyxismc.manhunt.GUIs;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
@@ -16,11 +16,15 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
+import xyz.pyxismc.manhunt.Commands.ManhuntCommand;
+import xyz.pyxismc.manhunt.Listeners.Configuration.Compass.CompassEnableListener;
+import xyz.pyxismc.manhunt.Listeners.Configuration.FriendlyFireListener;
+import xyz.pyxismc.manhunt.Listeners.Configuration.OverWorldBorderListener;
+import xyz.pyxismc.manhunt.Listeners.Configuration.RunnerFriendlyFireListener;
+import xyz.pyxismc.manhunt.Listeners.Events.StartGameListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ManhuntGUI implements Listener, CommandExecutor {
