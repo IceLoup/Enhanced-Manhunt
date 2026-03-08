@@ -113,8 +113,7 @@ public class StartGameListener implements Listener {
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
             onlinePlayer.teleport(spawnLocation);
 
-            double maxHealth = onlinePlayer.getAttribute(Attribute.MAX_HEALTH).getValue();
-            onlinePlayer.setHealth(maxHealth);
+            onlinePlayer.getMaxHealth();
             onlinePlayer.setFoodLevel(20);
             onlinePlayer.setSaturation(12.5f);
 
